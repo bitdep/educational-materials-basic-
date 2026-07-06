@@ -335,6 +335,153 @@
         }
         .intro-highlight h2 { margin: 0 0 15px 0; }
         .intro-highlight p { margin: 0; opacity: 0.9; }
+
+        /* TECHNICAL ANALYSIS STYLES */
+        .ta-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .ta-tab {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        .ta-tab:hover { border-color: var(--accent); color: var(--accent); }
+        .ta-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+        
+        .ta-content { display: none; }
+        .ta-content.active { display: block; animation: fadeIn 0.4s ease; }
+        
+        .ta-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .candlestick-demo {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+            background: #F8FAFC;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .candle {
+            width: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .candle-wick {
+            width: 2px;
+            background: var(--text-dark);
+        }
+        .candle-body {
+            width: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+        }
+        .bullish-body { background: #10B981; }
+        .bearish-body { background: #EF4444; }
+        
+        .principle-box {
+            background: linear-gradient(135deg, #F0F7FF, #E0E7FF);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid var(--accent);
+        }
+        .principle-box h4 { margin: 0 0 10px 0; color: var(--accent); }
+        
+        .level-indicator {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .level-beginner { background: #ECFDF5; color: #059669; }
+        .level-intermediate { background: #FFFBEB; color: #D97706; }
+        .level-advanced { background: #FEF2F2; color: #DC2626; }
+        
+        .chart-pattern {
+            background: #F8FAFC;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .pattern-shape {
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            position: relative;
+            margin: 10px 0;
+        }
+        
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+        .resource-link:hover { border-color: var(--accent); transform: translateX(5px); }
+        .resource-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .warning-box {
+            background: #FFFBEB;
+            border: 2px solid #FDE68A;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .warning-box h4 { color: #D97706; margin: 0 0 10px 0; }
+        
+        .indicator-visual {
+            background: #0F172A;
+            border-radius: 12px;
+            padding: 25px;
+            color: white;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -357,7 +504,7 @@
     
     <div class="nav-label">BASIC Programma</div>
     <button class="nav-item" onclick="showTab('basic_edu')">Crypto Fundamenten</button>
-    <button class="nav-item" onclick="openInvest('BASIC')">Technische Analyse</button>
+    <button class="nav-item" onclick="showTab('ta_edu')">Technische Analyse</button>
     <button class="nav-item" onclick="openInvest('BASIC')">Indicatoren Mastery</button>
     
     <div class="nav-label">PRO Programma</div>
@@ -392,12 +539,11 @@
         </div>
     </section>
 
-    <!-- BASIC SECTION -->
+    <!-- BASIC SECTION - CRYPTO FUNDAMENTEN -->
     <section id="basic_edu" class="section">
         <h1>Crypto Fundamenten <span style="color:var(--basic-color); font-size:18px;">[BASIC]</span></h1>
         <p style="color:var(--text-gray); margin-bottom:25px;">Leer de kernconcepten die elke beginner moet kennen.</p>
         
-        <!-- MENU MODE -->
         <div id="basicMenu" class="menu-container">
             <div class="lesson-card" onclick="startPlayMode()">
                 <span class="basic-badge">BASIC</span>
@@ -416,7 +562,6 @@
             </div>
         </div>
 
-        <!-- PLAY MODE - FLASHCARDS -->
         <div id="playMode" class="play-container">
             <div style="margin-bottom: 20px;">
                 <button class="back-to-menu" onclick="backToMenu()">← Terug naar Menu</button>
@@ -442,7 +587,6 @@
             </div>
         </div>
 
-        <!-- QUIZ MODE -->
         <div id="quizMode" class="quiz-container">
             <div style="margin-bottom: 20px;">
                 <button class="back-to-menu" onclick="backToMenu()">← Terug naar Menu</button>
@@ -457,7 +601,6 @@
             </div>
         </div>
 
-        <!-- ALTCOINS INTERACTIVE MODE -->
         <div id="altcoinsMode" class="play-container">
             <div style="margin-bottom: 20px;">
                 <button class="back-to-menu" onclick="backToMenu()">← Terug naar Menu</button>
@@ -822,6 +965,444 @@
         </div>
     </section>
 
+    <!-- TECHNICAL ANALYSIS SECTION -->
+    <section id="ta_edu" class="section">
+        <h1>Technische Analyse <span style="color:var(--basic-color); font-size:18px;">[BASIC]</span></h1>
+        <p style="color:var(--text-gray); margin-bottom:25px;">Leer prijsgrafieken lezen, trends identificeren en trading beslissingen nemen.</p>
+        
+        <div id="taMenu" class="menu-container">
+            <div class="lesson-card" onclick="openTA()">
+                <span class="basic-badge">BASIC</span>
+                <h3>Technische Analyse Cursus</h3>
+                <p>13 lessen: van candlestick charts tot risicomanagement. Interactieve leeromgeving.</p>
+            </div>
+            <div class="lesson-card locked-card" onclick="openInvest('BASIC')">
+                <span class="basic-badge">BASIC</span>
+                <h3>Indicatoren Mastery</h3>
+                <p>Diepgaande analyse van RSI, MACD, Bollinger Bands en Fibonacci. Upgrade vereist.</p>
+            </div>
+        </div>
+
+        <div id="taMode" class="play-container">
+            <div style="margin-bottom: 20px;">
+                <button class="back-to-menu" onclick="backToTAMenu()">← Terug naar Menu</button>
+            </div>
+            
+            <div class="intro-highlight">
+                <h2>Technische Analyse voor Cryptocurrency</h2>
+                <p>De studie van historische prijsbewegingen en handelsvolume om trends, entry/exit punten en marktsentiment te identificeren.</p>
+            </div>
+            
+            <div class="ta-nav">
+                <div class="ta-tab active" onclick="showTA('intro')">Introductie</div>
+                <div class="ta-tab" onclick="showTA('candlesticks')">Candlesticks</div>
+                <div class="ta-tab" onclick="showTA('support')">Support & Resistance</div>
+                <div class="ta-tab" onclick="showTA('trends')">Trends</div>
+                <div class="ta-tab" onclick="showTA('volume')">Volume</div>
+                <div class="ta-tab" onclick="showTA('ma')">Moving Averages</div>
+                <div class="ta-tab" onclick="showTA('rsi')">RSI</div>
+                <div class="ta-tab" onclick="showTA('macd')">MACD</div>
+                <div class="ta-tab" onclick="showTA('bollinger')">Bollinger Bands</div>
+                <div class="ta-tab" onclick="showTA('fibonacci')">Fibonacci</div>
+                <div class="ta-tab" onclick="showTA('patterns')">Patronen</div>
+                <div class="ta-tab" onclick="showTA('risk')">Risk Management</div>
+                <div class="ta-tab" onclick="showTA('psychology')">Psychologie</div>
+                <div class="ta-tab" onclick="showTA('resources')">Resources</div>
+            </div>
+            
+            <div id="ta-intro" class="ta-content active">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Wat is Technische Analyse?</h2>
+                    <p>Technische Analyse (TA) is het bestuderen van <strong>historische prijsbewegingen</strong> en <strong>handelsvolume</strong> om traders te helpen trends, potentiële entry/exit punten en algemeen marktsentiment te identificeren.</p>
+                    
+                    <div class="warning-box">
+                        <h4>Belangrijke Opmerking</h4>
+                        <p>TA voorspelt de toekomst niet met zekerheid. Het biedt tools voor het evalueren van <strong>kansen</strong>.</p>
+                    </div>
+                    
+                    <h3>Kernprincipes van Technische Analyse:</h3>
+                    <div class="principle-box">
+                        <h4>1. De markt discount alles</h4>
+                        <p>Prijs weerspiegelt alle bekende informatie, nieuws en marktverwachtingen.</p>
+                    </div>
+                    <div class="principle-box">
+                        <h4>2. Prijzen bewegen in trends</h4>
+                        <p>Markten bewegen vaak in dezelfde richting totdat condities veranderen.</p>
+                    </div>
+                    <div class="principle-box">
+                        <h4>3. Geschiedenis herhaalt zich</h4>
+                        <p>Patronen gevormd door kopers en verkopers kunnen opnieuw verschijnen onder vergelijkbare condities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-candlesticks" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Candlestick Charts</h2>
+                    <p>Candlestick charts zijn de meest gebruikte prijsgrafieken in cryptocurrency trading. Elke candlestick vertegenwoordigt de prijsbeweging gedurende een gekozen tijdsperiode.</p>
+                    
+                    <h3>Vier sleutelwaarden:</h3>
+                    <ul>
+                        <li><strong>Open</strong> — Prijs aan het begin van de periode</li>
+                        <li><strong>Close</strong> — Prijs aan het einde van de periode</li>
+                        <li><strong>High</strong> — Hoogste prijs bereikt</li>
+                        <li><strong>Low</strong> — Laagste prijs bereikt</li>
+                    </ul>
+                    
+                    <div class="candlestick-demo">
+                        <div class="candle">
+                            <div class="candle-wick" style="height: 20px;"></div>
+                            <div class="candle-body bullish-body" style="height: 60px;">Bullish</div>
+                            <div class="candle-wick" style="height: 15px;"></div>
+                            <p style="font-size: 12px; margin-top: 10px;">Close > Open</p>
+                        </div>
+                        <div class="candle">
+                            <div class="candle-wick" style="height: 15px;"></div>
+                            <div class="candle-body bearish-body" style="height: 60px;">Bearish</div>
+                            <div class="candle-wick" style="height: 20px;"></div>
+                            <p style="font-size: 12px; margin-top: 10px;">Close < Open</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <p><strong>Bullish Candle:</strong> Sluitingsprijs is hoger dan openingsprijs. Duidt op koopdruk.</p>
+                        <p><strong>Bearish Candle:</strong> Sluitingsprijs is lager dan openingsprijs. Duidt op verkoopdruk.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-support" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Support & Resistance</h2>
+                    <p>Dit zijn twee van de belangrijkste concepten in technische analyse.</p>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Support</h4>
+                            <p>Een prijsgebied waar koopinteresse eerder sterk genoeg was om een daling te stoppen of vertragen.</p>
+                            <p style="margin-top: 10px;"><em>Voorbeeld: Bitcoin valt herhaaldelijk naar $100,000 en kopers stappen in.</em></p>
+                        </div>
+                        <div class="cons">
+                            <h4>Resistance</h4>
+                            <p>Een prijsgebied waar verkoopdruk eerder sterk genoeg was om een stijging te stoppen of vertragen.</p>
+                            <p style="margin-top: 10px;"><em>Voorbeeld: Bitcoin worstelt herhaaldelijk om boven $110,000 te blijven.</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight">
+                        <h3>Belangrijk Inzicht</h3>
+                        <p>Wanneer support wordt doorbroken, kan het vaak resistance worden (en vice versa). Dit wordt een <strong>"role reversal"</strong> genoemd.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-trends" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Trend Analyse</h2>
+                    <p>Markten bewegen over het algemeen in een van drie richtingen:</p>
+                    
+                    <div class="principle-box">
+                        <h4>Uptrend (Stijgende Trend)</h4>
+                        <ul>
+                            <li>Hogere highs</li>
+                            <li>Hogere lows</li>
+                            <li>Duidt op controle door kopers</li>
+                        </ul>
+                    </div>
+                    <div class="principle-box">
+                        <h4>Downtrend (Dalende Trend)</h4>
+                        <ul>
+                            <li>Lagere highs</li>
+                            <li>Lagere lows</li>
+                            <li>Duidt op controle door verkopers</li>
+                        </ul>
+                    </div>
+                    <div class="principle-box">
+                        <h4>Sideways (Range)</h4>
+                        <p>Prijs beweegt tussen support en resistance zonder duidelijke stijgende of dalende trend.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-volume" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Trading Volume</h2>
+                    <p>Volume meet hoeveel van een asset is verhandeld gedurende een specifieke periode.</p>
+                    
+                    <h3>Waarom Volume Belangrijk Is:</h3>
+                    <div class="highlight">
+                        <p><strong>Hoger volume</strong> bij een prijsbeweging = sterkere marktdeelname en meer betrouwbaarheid.</p>
+                        <p><strong>Lager volume</strong> bij een prijsbeweging = zwakkere overtuiging, mogelijk minder betrouwbaar.</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>Volume Confirmatie</h4>
+                        <p>Een prijsstijging met toenemend volume wordt gezien als sterker dan een stijging met afnemend volume.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-ma" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-intermediate">Intermediate</span>
+                    <h2>Moving Averages (MA)</h2>
+                    <p>Een Moving Average maakt prijsdata glad om de algemene trend te identificeren.</p>
+                    
+                    <h3>Veelgebruikte Types:</h3>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>SMA (Simple Moving Average)</h4>
+                            <p>Gemiddelde prijs over een vast aantal periodes. Eenvoudig en stabiel.</p>
+                        </div>
+                        <div class="cons">
+                            <h4>EMA (Exponential Moving Average)</h4>
+                            <p>Geeft meer gewicht aan recente prijzen. Reageert sneller op marktveranderingen.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Populaire Instellingen:</h3>
+                    <div class="indicator-visual">
+                        <p>20 EMA  — Korte termijn trend</p>
+                        <p>50 EMA  — Middellange termijn trend</p>
+                        <p>100 EMA — Langere termijn trend</p>
+                        <p>200 EMA — Lange termijn trend indicator</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>Belangrijk</h4>
+                        <p>Veel traders bekijken de 200-period moving average als een lange-termijn trend indicator, maar gebruik deze altijd samen met andere tools.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-rsi" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-intermediate">Intermediate</span>
+                    <h2>Relative Strength Index (RSI)</h2>
+                    <p>RSI meet de snelheid en magnitude van recente prijsbewegingen. De indicator loopt van 0 tot 100.</p>
+                    
+                    <div class="indicator-visual">
+                        <p>RSI = 0-30  → Mogelijk OVERSOLD (onderkocht)</p>
+                        <p>RSI = 30-70 → Neutrale zone</p>
+                        <p>RSI = 70-100 → Mogelijk OVERBOUGHT (overkocht)</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>Let Op!</h4>
+                        <p>Dit zijn <strong>geen automatische koop- of verkoopsignalen</strong>. In sterke trends kan RSI lang boven 70 of onder 30 blijven.</p>
+                    </div>
+                    
+                    <div class="highlight">
+                        <h3>Praktische Tip</h3>
+                        <p>Gebruik RSI in combinatie met support/resistance levels en trend analyse voor betere resultaten.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-macd" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-intermediate">Intermediate</span>
+                    <h2>MACD</h2>
+                    <p>MACD staat voor <strong>Moving Average Convergence Divergence</strong>. Het vergelijkt twee moving averages om veranderingen in momentum te identificeren.</p>
+                    
+                    <h3>MACD Bestaat Uit:</h3>
+                    <ul>
+                        <li><strong>MACD Line</strong> — Het verschil tussen twee EMA's</li>
+                        <li><strong>Signal Line</strong> — EMA van de MACD Line</li>
+                        <li><strong>Histogram</strong> — Visuele weergave van het verschil</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <h3>Mogelijke Interpretaties:</h3>
+                        <p><strong>MACD kruist boven Signal Line</strong> → Mogelijk toenemend bullish momentum</p>
+                        <p><strong>MACD kruist onder Signal Line</strong> → Mogelijk toenemend bearish momentum</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>Altijd Combineren</h4>
+                        <p>MACD werkt het beste in combinatie met andere analyse tools. Gebruik nooit één indicator op zichzelf.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-bollinger" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-intermediate">Intermediate</span>
+                    <h2>Bollinger Bands</h2>
+                    <p>Bollinger Bands bestaan uit drie lijnen die helpen bij het visualiseren van marktvolatiliteit:</p>
+                    
+                    <ul>
+                        <li><strong>Upper Band</strong> — Bovenste grens</li>
+                        <li><strong>Middle Moving Average</strong> — Middelste lijn (meestal 20 SMA)</li>
+                        <li><strong>Lower Band</strong> — Onderste grens</li>
+                    </ul>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Brede Bands</h4>
+                            <p>Hoge volatiliteit. Markt is actief. Mogelijk voorbereiding op grote beweging.</p>
+                        </div>
+                        <div class="cons">
+                            <h4>Smalle Bands</h4>
+                            <p>Lage volatiliteit. Kan soms voorafgaan aan grotere prijsbewegingen ("squeeze").</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-fibonacci" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-advanced">Advanced</span>
+                    <h2>Fibonacci Retracement</h2>
+                    <p>Fibonacci Retracement is een tool om gebieden te identificeren waar prijs mogelijk support of resistance vindt tijdens een pullback.</p>
+                    
+                    <h3>Veelgebruikte Retracement Levels:</h3>
+                    <div class="indicator-visual">
+                        <p>23.6%  — Zwak retracement</p>
+                        <p>38.2%  — Mild retracement</p>
+                        <p>50.0%  — Middelpunt (geen echte Fibonacci, maar populair)</p>
+                        <p>61.8%  — "Golden Ratio" — sterk level</p>
+                        <p>78.6%  — Diep retracement</p>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h4>Richtlijnen, Geen Garanties</h4>
+                        <p>Deze levels zijn <strong>richtlijnen</strong> in plaats van garanties. Prijs reageert niet altijd precies op deze niveaus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-patterns" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-intermediate">Intermediate</span>
+                    <h2>Chart Patterns</h2>
+                    <p>Herkenbare patronen die traders helpen potentiële trendveranderingen te identificeren:</p>
+                    
+                    <div class="principle-box">
+                        <h4>Double Top</h4>
+                        <p>Twee pieken op ongeveer hetzelfde niveau. Vaak gezien als teken van verzwakkend opwaarts momentum.</p>
+                    </div>
+                    <div class="principle-box">
+                        <h4>Double Bottom</h4>
+                        <p>Twee dalen op ongeveer hetzelfde niveau. Vaak gezien als teken van verzwakkend neerwaarts momentum.</p>
+                    </div>
+                    <div class="principle-box">
+                        <h4>Head and Shoulders</h4>
+                        <p>Drie pieken met de middelste als hoogste. Kan een mogelijke trend reversal signaleren.</p>
+                    </div>
+                    <div class="principle-box">
+                        <h4>Ascending Triangle</h4>
+                        <p>Continuatie patroon. Hogere lows met flat resistance. Kan toenemende koopdruk aangeven.</p>
+                    </div>
+                    <div class="principle-box">
+                        <h4>Descending Triangle</h4>
+                        <p>Continuatie patroon. Lagere highs met flat support. Kan toenemende verkoopdruk aangeven.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-risk" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Risk Management</h2>
+                    <p>Technische analyse is het meest effectief wanneer gecombineerd met gedisciplineerd risicomanagement.</p>
+                    
+                    <h3>Goede Praktijken:</h3>
+                    <div class="highlight">
+                        <ul>
+                            <li><strong>Risk per trade</strong> — Zet nooit meer dan een klein percentage van je kapitaal op één trade.</li>
+                            <li><strong>Stop-loss orders</strong> — Gebruik waar passend om verlies te beperken.</li>
+                            <li><strong>Diversificatie</strong> — Verdeel je fondsen over meerdere assets.</li>
+                            <li><strong>Emotioneel beslissen vermijden</strong> — Volg je plan, niet je emoties.</li>
+                            <li><strong>Verlies accepteren</strong> — Verlies hoort bij trading. Leer ervan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-psychology" class="ta-content">
+                <div class="ta-card">
+                    <span class="level-indicator level-beginner">Beginner</span>
+                    <h2>Trading Psychology</h2>
+                    <p>Markten worden niet alleen gedreven door data, maar ook door menselijke emoties.</p>
+                    
+                    <h3>Veelvoorkomende Psychologische Valkuilen:</h3>
+                    <div class="mistake-box">
+                        <ul>
+                            <li><strong>FOMO (Fear of Missing Out)</strong> — Trades enteren omdat anderen kopen.</li>
+                            <li><strong>Panic Selling</strong> — Verkopen tijdens scherpe dalingen zonder plan.</li>
+                            <li><strong>Overconfidence</strong> — Denken dat succesvolle trades toekomstig succes garanderen.</li>
+                            <li><strong>Revenge Trading</strong> — Impulsieve trades nemen na een verlies.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="key-takeaway">
+                        <h3>Succesvolle Traders</h3>
+                        <p>Volgen een <strong>trading plan</strong> in plaats van emotioneel te reageren. Discipline is belangrijker dan enkele indicator.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ta-resources" class="ta-content">
+                <div class="ta-card">
+                    <h2>Aanbevolen Gratis Leerresources</h2>
+                    
+                    <a href="https://academy.binance.com" target="_blank" class="resource-link">
+                        <div class="resource-icon">B</div>
+                        <div>
+                            <h4 style="margin: 0;">Binance Academy</h4>
+                            <p style="margin: 5px 0 0 0; color: var(--text-gray);">Technical Analysis, Indicators, Candlestick Patterns, Trading Psychology</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.tradingview.com/education/" target="_blank" class="resource-link">
+                        <div class="resource-icon">TV</div>
+                        <div>
+                            <h4 style="margin: 0;">TradingView Education</h4>
+                            <p style="margin: 5px 0 0 0; color: var(--text-gray);">Chart Reading, Technical Indicators, Trend Analysis, Strategy Development</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.investopedia.com/technical-analysis-4689657" target="_blank" class="resource-link">
+                        <div class="resource-icon">I</div>
+                        <div>
+                            <h4 style="margin: 0;">Investopedia</h4>
+                            <p style="margin: 5px 0 0 0; color: var(--text-gray);">Technical Analysis Basics, Chart Patterns, Risk Management</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.babypips.com/learn" target="_blank" class="resource-link">
+                        <div class="resource-icon">BP</div>
+                        <div>
+                            <h4 style="margin: 0;">BabyPips School</h4>
+                            <p style="margin: 5px 0 0 0; color: var(--text-gray);">Chart reading, indicators, psychology — oorspronkelijk forex, maar uitstekend voor crypto</p>
+                        </div>
+                    </a>
+                    
+                    <div class="key-takeaway" style="margin-top: 30px;">
+                        <h3>Belangrijkste Inzicht</h3>
+                        <p>Technische analyse is een <strong>beslissingsondersteunend tool</strong>, geen voorspellingssysteem. Ervaring traders combineren meestal:</p>
+                        <ul>
+                            <li>Price action</li>
+                            <li>Support en resistance</li>
+                            <li>Trend analyse</li>
+                            <li>Volume</li>
+                            <li>Meerdere indicators</li>
+                            <li>Risicomanagement</li>
+                            <li>Fundamentele analyse</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Leren om deze tools samen te interpreteren — en te begrijpen dat geen indicator altijd accuraat is — is waardevoller dan vertrouwen op één signaal.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PRO SECTION - LOCKED -->
     <section id="pro_edu" class="section">
         <h1>Handelspraktijk <span style="color:var(--pro-color); font-size:18px;">[PRO]</span></h1>
@@ -1096,6 +1677,24 @@
         document.querySelectorAll('.altcoin-content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.altcoin-tab').forEach(t => t.classList.remove('active'));
         document.getElementById('altcoin-' + id).classList.add('active');
+        event.target.classList.add('active');
+    }
+
+    // TECHNICAL ANALYSIS FUNCTIONS
+    function openTA() {
+        document.getElementById('taMenu').style.display = 'none';
+        document.getElementById('taMode').classList.add('active');
+    }
+
+    function backToTAMenu() {
+        document.getElementById('taMenu').style.display = 'block';
+        document.getElementById('taMode').classList.remove('active');
+    }
+
+    function showTA(id) {
+        document.querySelectorAll('.ta-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.ta-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('ta-' + id).classList.add('active');
         event.target.classList.add('active');
     }
 
