@@ -527,13 +527,6 @@
             font-weight: 700;
             font-size: 12px;
         }
-        .scale-marker {
-            position: absolute;
-            top: -10px;
-            width: 2px;
-            height: 50px;
-            background: var(--text-dark);
-        }
         
         .toolkit-card {
             background: linear-gradient(135deg, #F0F7FF, #E0E7FF);
@@ -604,6 +597,259 @@
         .setup-beginner { border-color: #10B981; }
         .setup-intermediate { border-color: #F59E0B; }
         .setup-advanced { border-color: #EF4444; }
+
+        /* FREE SECTION NEW STYLES */
+        .free-welcome {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .free-welcome h1 { margin: 0 0 15px 0; font-size: 32px; }
+        .free-welcome p { margin: 0; font-size: 18px; opacity: 0.9; }
+        
+        .progress-tracker {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background: #F8FAFC;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+        .progress-step.completed { background: var(--basic-color); color: white; }
+        .progress-step.active { background: var(--accent); color: white; }
+        .progress-line {
+            flex-grow: 1;
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+        }
+        .progress-line.completed { background: var(--basic-color); }
+        
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--basic-color));
+            border-radius: 3px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .timeline-dot.milestone { border-color: var(--basic-color); background: var(--basic-color); }
+        .timeline-year {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        .timeline-content {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .timeline-content h4 { margin: 0 0 8px 0; }
+        .timeline-content p { margin: 0; color: var(--text-gray); font-size: 14px; }
+        
+        /* Comparison Slider */
+        .comparison-slider {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 20px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+        .comparison-side {
+            padding: 30px;
+            text-align: center;
+        }
+        .comparison-side.traditional { background: #F1F5F9; }
+        .comparison-side.defi { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+        .comparison-side h3 { margin: 0 0 15px 0; }
+        .comparison-side ul { text-align: left; padding-left: 20px; margin: 0; }
+        .comparison-side li { margin-bottom: 8px; font-size: 14px; }
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--text-dark);
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+        }
+        
+        /* Glossary Styles */
+        .glossary-search {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .glossary-search:focus { border-color: var(--accent); }
+        
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .glossary-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .glossary-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .glossary-term {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .glossary-def {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+        .glossary-letter {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        /* Myth Buster */
+        .myth-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .myth-card:hover { border-color: #EF4444; }
+        .myth-card.flipped { border-color: #10B981; }
+        .myth-question {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .myth-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FEF2F2;
+            color: #EF4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .myth-card.flipped .myth-icon {
+            background: #ECFDF5;
+            color: #10B981;
+        }
+        .myth-answer {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+        .myth-card.flipped .myth-answer { display: block; }
+        .myth-card.flipped .myth-question { display: none; }
+        
+        /* Quick Start Steps */
+        .quick-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .quick-step {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .quick-step:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .quick-step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            margin: 0 auto 15px;
+        }
+        .quick-step h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .quick-step p { margin: 0; font-size: 12px; color: var(--text-gray); }
+        
+        @media (max-width: 768px) {
+            .quick-steps { grid-template-columns: repeat(2, 1fr); }
+            .setup-comparison { grid-template-columns: 1fr; }
+            .comparison-slider { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -644,20 +890,76 @@
 </nav>
 
 <main>
-    <!-- FREE SECTION -->
+    <!-- FREE SECTION - REWRITTEN -->
     <section id="free_edu" class="section active">
-        <h1>Basis van Digitale Assets</h1>
+        <div class="free-welcome">
+            <h1>Welkom bij Bitelity Academy</h1>
+            <p>Jouw gratis startpunt in de wereld van digitale assets. Geen ervaring nodig — we leggen alles uit vanaf nul.</p>
+        </div>
+        
+        <div class="progress-tracker">
+            <div class="progress-step completed">1</div>
+            <div class="progress-line completed"></div>
+            <div class="progress-step completed">2</div>
+            <div class="progress-line completed"></div>
+            <div class="progress-step completed">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">4</div>
+            <div class="progress-line"></div>
+            <div class="progress-step">5</div>
+            <span style="margin-left: 10px; color: var(--text-gray); font-size: 14px;">Je bent hier: Stap 4 van 5</span>
+        </div>
+        
+        <h2 style="margin-bottom: 20px;">Gratis Cursus: Inleiding tot Digitale Assets</h2>
+        
+        <div class="lesson-card" onclick="openEdu('why_crypto')">
+            <h3>Waarom Crypto?</h3>
+            <p>De problemen die digitale assets oplossen: inflatie, banktoegang, snelheid en transparantie.</p>
+        </div>
+        
         <div class="lesson-card" onclick="openEdu('btc')">
             <h3>Wat is Bitcoin?</h3>
             <p>De eerste digitale valuta ter wereld, digitaal goud en de kracht van decentralisatie.</p>
         </div>
+        
         <div class="lesson-card" onclick="openEdu('blockchain')">
             <h3>Hoe werkt blockchain?</h3>
             <p>Een stapsgewijze analyse van de technologie: van transactie tot hashing.</p>
         </div>
+        
         <div class="lesson-card" onclick="openEdu('smart')">
             <h3>Smart Contract</h3>
             <p>Digitale overeenkomsten die werken zonder tussenpersonen, banken of advocaten.</p>
+        </div>
+        
+        <div class="lesson-card" onclick="openEdu('trad_vs_defi')">
+            <h3>Traditioneel Bankieren vs DeFi</h3>
+            <p>Een interactieve vergelijking van het oude systeem versus gedecentraliseerde financiën.</p>
+        </div>
+        
+        <div class="lesson-card" onclick="openEdu('timeline')">
+            <h3>De Geschiedenis van Crypto</h3>
+            <p>Van de Bitcoin whitepaper in 2008 tot de DeFi revolutie van vandaag — een visuele tijdlijn.</p>
+        </div>
+        
+        <div class="lesson-card" onclick="openEdu('quickstart')">
+            <h3>Hoe Begin Je? — 4 Stappen</h3>
+            <p>Wallet kiezen → Exchange vinden → Eerste aankoop → Veilig bewaren.</p>
+        </div>
+        
+        <div class="lesson-card" onclick="openEdu('myths')">
+            <h3>Mythen & Misverstanden</h3>
+            <p>"Crypto is alleen voor criminelen", "Het is te laat om in te stappen", en andere fabels ontkracht.</p>
+        </div>
+        
+        <div class="lesson-card" onclick="openEdu('security_basics')">
+            <h3>Veiligheid Basics</h3>
+            <p>De eerste regels van crypto veiligheid: private keys, scams herkennen, en waarom 2FA essentieel is.</p>
+        </div>
+        
+        <div class="lesson-card" onclick="openEdu('glossary')">
+            <h3>Crypto Woordenlijst</h3>
+            <p>Alle belangrijke termen op een rij — van Airdrop tot Whale. Doorzoekbaar en eenvoudig.</p>
         </div>
     </section>
 
@@ -1251,7 +1553,7 @@
             </div>
             
             <div id="ta-volume" class="ta-content">
-                <div class="ta-card">
+                div class="ta-card">
                     <span class="level-indicator level-beginner">Beginner</span>
                     <h2>Trading Volume</h2>
                     <p>Volume meet hoeveel van een asset is verhandeld gedurende een specifieke periode.</p>
@@ -2346,6 +2648,35 @@
 
     // EXISTING FUNCTIONS
     const contentData = {
+        why_crypto: `
+            <h2>Waarom Crypto?</h2>
+            <p>Digitale assets lossen fundamentele problemen op in ons huidige financiële systeem. Hier zijn de belangrijkste redenen waarom miljoenen mensen wereldwijd overstappen:</p>
+            
+            <div class="highlight">
+                <h3>1. Bescherming Tegen Inflatie</h3>
+                <p>Traditionele valuta verliezen jaarlijks waarde door geldprinten. Bitcoin heeft een vaste voorraad van 21 miljoen — geen centrale bank kan meer bijprinten.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>2. Financiële Toegankelijkheid</h3>
+                <p>1.7 miljard mensen wereldwijd hebben geen bankrekening. Met crypto heb je alleen een smartphone en internet nodig.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>3. Snelheid & Kosten</h3>
+                <p>Internationale overschrijvingen via banken: 3-5 dagen, hoge fees. Crypto: minuten, fractie van de kosten.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>4. Transparantie</h3>
+                <p>Alle transacties zijn publiek zichtbaar op de blockchain. Geen verborgen kosten of manipulatie.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>5. Eigenaarschap</h3>
+                <p>Met crypto ben jij de enige eigenaar van je geld. Geen bank die je rekening kan bevriezen of limieten oplegt.</p>
+            </div>
+        `,
         btc: `
             <h2>Bitcoin (Bitcoin, BTC)</h2>
             <p>Bitcoin is 's werelds eerste gedecentraliseerde digitale valuta, in 2009 gecreëerd door een persoon of groep onder het pseudoniem Satoshi Nakamoto.</p>
@@ -2410,8 +2741,450 @@
                 <li>💰 <strong>DeFi</strong> — leningen verstrekken, valuta wisselen.</li>
                 <li>🎨 <strong>NFT</strong> — automatische overdracht van digitale kunst.</li>
             </ul>
+        `,
+        trad_vs_defi: `
+            <h2>Traditioneel Bankieren vs DeFi</h2>
+            <p>Een directe vergelijking tussen het oude financiële systeem en gedecentraliseerde financiën:</p>
+            
+            <div class="comparison-slider">
+                <div class="comparison-side traditional">
+                    <h3>🏦 Traditioneel</h3>
+                    <ul>
+                        <li>Banken als tussenpersoon</li>
+                        <li>Openingstijden beperkt</li>
+                        <li>Hoge transactiekosten</li>
+                        <li>Dagen wachten voor transfers</li>
+                        <li>Minimale saldo vereist</li>
+                        <li>Bank beslist over je geld</li>
+                        <li>Papierwerk en KYC</li>
+                        <li>Geen transparantie</li>
+                    </ul>
+                </div>
+                <div class="vs-divider">VS</div>
+                <div class="comparison-side defi">
+                    <h3>🌐 DeFi</h3>
+                    <ul>
+                        <li>Geen tussenpersoon</li>
+                        <li>24/7 beschikbaar</li>
+                        <li>Lage tot geen kosten</li>
+                        <li>Minuten voor transfers</li>
+                        <li>Geen minimum</li>
+                        <li>Jij bent de eigenaar</li>
+                        <li>Alleen wallet nodig</li>
+                        <li>Volledig transparant</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>De Toekomst van Financiën</h3>
+                <p>DeFi maakt financiële diensten toegankelijk voor iedereen met internet — ongeacht locatie, inkomen of achtergrond. Geen toestemming van een bank nodig.</p>
+            </div>
+        `,
+        timeline: `
+            <h2>De Geschiedenis van Crypto</h2>
+            <p>Van de eerste ideeën tot de wereldwijde adoptie van vandaag:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot milestone"></div>
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-content">
+                        <h4>Bitcoin Whitepaper</h4>
+                        <p>Satoshi Nakamoto publiceert het whitepaper "Bitcoin: A Peer-to-Peer Electronic Cash System" op 31 oktober.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2009</div>
+                    <div class="timeline-content">
+                        <h4>Genesis Block</h4>
+                        <p>De eerste Bitcoin wordt gemined op 3 januari. Het netwerk is live.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h4>Bitcoin Pizza Day</h4>
+                        <p>10,000 BTC voor twee pizza's — de eerste echte aankoop met cryptocurrency.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot milestone"></div>
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h4>Ethereum Launch</h4>
+                        <p>Vitalik Buterin lanceert Ethereum, introducerend smart contracts en het concept van een "wereldcomputer".</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <h4>ICO Boom</h4>
+                        <p>Initial Coin Offerings brengen miljarden op. Crypto krijgt mainstream aandacht.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h4>DeFi Zomer</h4>
+                        <p>Gedecentraliseerde financiën exploderen. Yield farming, liquidity pools en DEXen worden populair.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot milestone"></div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h4>NFT Explosie & El Salvador</h4>
+                        <p>NFTs gaan viral. El Salvador wordt het eerste land dat Bitcoin als wettig betaalmiddel aanneemt.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h4>Bitcoin ETFs & Halving</h4>
+                        <p>Spot Bitcoin ETFs worden goedgekeurd in de VS. De 4e halving vermindert de beloning voor miners.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h4>Institutionele Adoptie</h4>
+                        <p>Meer landen en bedrijven integreren crypto. DeFi is mainstream geworden.</p>
+                    </div>
+                </div>
+            </div>
+        `,
+        quickstart: `
+            <h2>Hoe Begin Je met Crypto? — 4 Stappen</h2>
+            <p>Je eerste stappen in de wereld van digitale assets, eenvoudig uitgelegd:</p>
+            
+            <div class="quick-steps">
+                <div class="quick-step">
+                    <div class="quick-step-number">1</div>
+                    <h4>Wallet Kiezen</h4>
+                    <p>Download een veilige wallet zoals MetaMask of Trust Wallet. Bewaar je seed phrase offline!</p>
+                </div>
+                <div class="quick-step">
+                    <div class="quick-step-number">2</div>
+                    <h4>Exchange Vinden</h4>
+                    <p>Kies een betrouwbare exchange zoals Coinbase of Kraken. Voltooi de KYC-verificatie.</p>
+                </div>
+                <div class="quick-step">
+                    <div class="quick-step-number">3</div>
+                    <h4>Eerste Aankoop</h4>
+                    <p>Koop een klein bedrag Bitcoin of Ethereum. Begin nooit met meer dan je kunt verliezen.</p>
+                </div>
+                <div class="quick-step">
+                    <div class="quick-step-number">4</div>
+                    <h4>Veilig Bewaren</h4>
+                    <p>Verplaats je crypto naar je eigen wallet. Activeer 2FA overal. Leer over scams!</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Belangrijke Regel</h4>
+                <p>Start klein. Leer eerst. Investeer nooit meer dan je kunt veroorloven te verliezen. Crypto is volatiel!</p>
+            </div>
+        `,
+        myths: `
+            <h2>Mythen & Misverstanden</h2>
+            <p>Klik op een mythe om de waarheid te onthullen:</p>
+            
+            <div class="myth-card" onclick="this.classList.toggle('flipped')">
+                <div class="myth-question">
+                    <div class="myth-icon">❌</div>
+                    <div>
+                        <h4 style="margin: 0;">"Crypto is alleen voor criminelen"</h4>
+                        <p style="margin: 5px 0 0 0; color: var(--text-gray);">De meeste crypto-transacties zijn illegaal...</p>
+                    </div>
+                </div>
+                <div class="myth-answer">
+                    <div class="myth-icon">✅</div>
+                    <div>
+                        <h4 style="margin: 0; color: #059669;">De Waarheid</h4>
+                        <p style="margin: 5px 0 0 0;">Mind dan 0.5% van crypto-transacties zijn illegaal. Bitcoin is volledig traceerbaar. Banken verwerken jaarlijks véél meer crimineel geld.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="myth-card" onclick="this.classList.toggle('flipped')">
+                <div class="myth-question">
+                    <div class="myth-icon">❌</div>
+                    <div>
+                        <h4 style="margin: 0;">"Het is te laat om in te stappen"</h4>
+                        <p style="margin: 5px 0 0 0; color: var(--text-gray);">Bitcoin is al $100,000+, de boot is gemist...</p>
+                    </div>
+                </div>
+                <div class="myth-answer">
+                    <div class="myth-icon">✅</div>
+                    <div>
+                        <h4 style="margin: 0; color: #059669;">De Waarheid</h4>
+                        <p style="margin: 5px 0 0 0;">Crypto is nog steeds in de vroege adoptiefase. Vergelijk met het internet in 2000 — de echte groei komt nog.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="myth-card" onclick="this.classList.toggle('flipped')">
+                <div class="myth-question">
+                    <div class="myth-icon">❌</div>
+                    <div>
+                        <h4 style="margin: 0;">"Crypto heeft geen echte waarde"</h4>
+                        <p style="margin: 5px 0 0 0; color: var(--text-gray);">Het is lucht, je kunt het niet aanraken...</p>
+                    </div>
+                </div>
+                <div class="myth-answer">
+                    <div class="myth-icon">✅</div>
+                    <div>
+                        <h4 style="margin: 0; color: #059669;">De Waarheid</h4>
+                        <p style="margin: 5px 0 0 0;">Waarde komt uit schaarste, veiligheid, netwerkeffect en nut. Hetzelfde geldt voor goud, aandelen en fiat geld — die zijn ook digitaal voor 99%.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="myth-card" onclick="this.classList.toggle('flipped')">
+                <div class="myth-question">
+                    <div class="myth-icon">❌</div>
+                    <div>
+                        <h4 style="margin: 0;">"Je moet een heel Bitcoin kopen"</h4>
+                        <p style="margin: 5px 0 0 0; color: var(--text-gray);">Bitcoin is te duur voor mij...</p>
+                    </div>
+                </div>
+                <div class="myth-answer">
+                    <div class="myth-icon">✅</div>
+                    <div>
+                        <h4 style="margin: 0; color: #059669;">De Waarheid</h4>
+                        <p style="margin: 5px 0 0 0;">Bitcoin is deelbaar tot 8 decimalen. Je kunt $10, $50 of $500 aan Bitcoin kopen. Je hoeft geen hele BTC te bezitten.</p>
+                    </div>
+                </div>
+            </div>
+        `,
+        security_basics: `
+            <h2>Veiligheid Basics</h2>
+            <p>De eerste regels van crypto veiligheid — leer deze voordat je investeert:</p>
+            
+            <div class="highlight">
+                <h3>1. Jouw Keys, Jouw Crypto</h3>
+                <p><strong>"Not your keys, not your coins."</strong> Als je crypto op een exchange laat staan, controleert de exchange het. Verplaats het naar je eigen wallet.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>2. Seed Phrase = Alles</h3>
+                <p>Je seed phrase (12-24 woorden) is de backup van je wallet. <strong>Schrijf het op papier</strong>, niet op je telefoon of computer. Bewaar het op een veilige plek.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>3. Scams Herkennen</h3>
+                <ul>
+                    <li>Niemand geeft gratis crypto weg ("send 1 BTC, get 2 BTC back")</li>
+                    <li>Deel nooit je seed phrase of private keys</li>
+                    <li>Controleer URL's altijd dubbel</li>
+                    <li>Wees sceptisch van "garanteerde" rendementen</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h3>4. 2FA is Essentieel</h3>
+                <p>Gebruik <strong>Google Authenticator</strong> of een hardware key voor alle accounts. SMS 2FA is beter dan niets, maar niet waterdicht.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Onherroepelijk</h4>
+                <p>Crypto transacties zijn <strong>onherroepelijk</strong>. Als je geld naar het verkeerde adres stuurt of gehackt wordt, is er geen bank die je kan helpen.</p>
+            </div>
+        `,
+        glossary: `
+            <h2>Crypto Woordenlijst</h2>
+            <p>Zoek naar termen of blader door het alfabet:</p>
+            
+            <input type="text" class="glossary-search" placeholder="Zoek een term..." onkeyup="filterGlossary(this.value)">
+            
+            <div id="glossaryContainer">
+                <div class="glossary-letter">A</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Altcoin</div>
+                        <div class="glossary-def">Elke cryptocurrency andere dan Bitcoin. Ethereum, Solana, Cardano zijn allemaal altcoins.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Airdrop</div>
+                        <div class="glossary-def">Gratis distributie van cryptocurrency tokens aan wallet houders, vaak als promotie.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">ATH (All Time High)</div>
+                        <div class="glossary-def">De hoogste prijs die een cryptocurrency ooit heeft bereikt.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">B</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Bear Market</div>
+                        <div class="glossary-def">Een periode van dalende prijzen en negatief marktsentiment.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Blockchain</div>
+                        <div class="glossary-def">Een gedecentraliseerd digitaal grootboek dat transacties vastlegt in blokken.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Bull Market</div>
+                        <div class="glossary-def">Een periode van stijgende prijzen en positief marktsentiment.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">D</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">DeFi</div>
+                        <div class="glossary-def">Decentralized Finance — financiële diensten zonder banken, gebouwd op blockchain.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">DEX</div>
+                        <div class="glossary-def">Decentralized Exchange — een exchange zonder centrale autoriteit.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">F</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Fiat</div>
+                        <div class="glossary-def">Traditioneel geld uitgegeven door overheden, zoals euro's of dollars.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">FOMO</div>
+                        <div class="glossary-def">Fear Of Missing Out — angst om een kans te missen, leidt tot impulsieve beslissingen.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">H</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">HODL</div>
+                        <div class="glossary-def">Een typefout van "hold" die een meme werd. Betekent: lang vasthouden, niet verkopen bij paniek.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Hot Wallet</div>
+                        <div class="glossary-def">Een wallet verbonden met internet. Handig maar minder veilig dan cold storage.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">K</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">KYC</div>
+                        <div class="glossary-def">Know Your Customer — identiteitsverificatie vereist door exchanges.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">M</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Mining</div>
+                        <div class="glossary-def">Het proces van transacties verifiëren en toevoegen aan de blockchain, met beloning in crypto.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">N</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">NFT</div>
+                        <div class="glossary-def">Non-Fungible Token — een uniek digitaal item op de blockchain, vaak kunst of verzamelobjecten.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Node</div>
+                        <div class="glossary-def">Een computer die deelneemt aan het blockchain netwerk en transacties verifieert.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">P</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Private Key</div>
+                        <div class="glossary-def">Een geheime code die toegang geeft tot je crypto. Deel deze NOOIT met iemand.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Public Key</div>
+                        <div class="glossary-def">Je "adres" waar anderen crypto naar kunnen sturen. Veilig om te delen.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">S</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Seed Phrase</div>
+                        <div class="glossary-def">12-24 woorden die je wallet kunnen herstellen. Bewaar dit veilig en offline!</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Smart Contract</div>
+                        <div class="glossary-def">Een zelf-uitvoerend programma op de blockchain dat automatisch afspraken naleeft.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Stablecoin</div>
+                        <div class="glossary-def">Een cryptocurrency gekoppeld aan een stabiele waarde, meestal $1 (USDT, USDC).</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Staking</div>
+                        <div class="glossary-def">Crypto "vastzetten" om het netwerk te beveiligen en beloningen te verdienen.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">V</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Volatiliteit</div>
+                        <div class="glossary-def">De mate waarin prijzen schommelen. Crypto staat bekend om hoge volatiliteit.</div>
+                    </div>
+                </div>
+                
+                <div class="glossary-letter">W</div>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Wallet</div>
+                        <div class="glossary-def">Een digitale portemonnee voor het opslaan, verzenden en ontvangen van cryptocurrency.</div>
+                    </div>
+                    <div class="glossary-item">
+                        <div class="glossary-term">Whale</div>
+                        <div class="glossary-def">Een persoon of entiteit die een enorme hoeveelheid crypto bezit en de markt kan beïnvloeden.</div>
+                    </div>
+                </div>
+            </div>
         `
     };
+
+    function filterGlossary(searchTerm) {
+        const items = document.querySelectorAll('.glossary-item');
+        const letters = document.querySelectorAll('.glossary-letter');
+        
+        items.forEach(item => {
+            const term = item.querySelector('.glossary-term').textContent.toLowerCase();
+            const def = item.querySelector('.glossary-def').textContent.toLowerCase();
+            if (term.includes(searchTerm.toLowerCase()) || def.includes(searchTerm.toLowerCase())) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        letters.forEach(letter => {
+            const nextGrid = letter.nextElementSibling;
+            if (nextGrid && nextGrid.classList.contains('glossary-grid')) {
+                const visibleItems = nextGrid.querySelectorAll('.glossary-item[style*="block"]');
+                const hiddenItems = nextGrid.querySelectorAll('.glossary-item[style*="none"]');
+                if (visibleItems.length === 0 && hiddenItems.length > 0) {
+                    letter.style.display = 'none';
+                    nextGrid.style.display = 'none';
+                } else {
+                    letter.style.display = 'block';
+                    nextGrid.style.display = 'grid';
+                }
+            }
+        });
+    }
 
     function openEdu(key) { 
         document.getElementById('modalContainer').style.maxWidth = "850px"; 
